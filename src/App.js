@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 
 const posts = [
-  { slug: "first-post", title: "첫 번째 글" },
+  { slug: "1st", title: "첫 번째 글" },
   { slug: "second-post", title: "두 번째 글" },
 ];
 
