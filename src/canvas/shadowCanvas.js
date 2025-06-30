@@ -1,5 +1,5 @@
 import React from "react";
-import useCanvas from '@/src/canvas/useCanvas';
+import useCanvas from './useCanvas';
 
 const width = 1000;
 const height = 700;

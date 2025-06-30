@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import "./App.css"
-import "./canvas/shadowCanvas"
+import Canvas from "./canvas/shadowCanvas"
 
 const posts = [
   { slug: "1st", title: "첫 번째 글" },
