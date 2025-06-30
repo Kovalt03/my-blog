@@ -6,41 +6,26 @@ const posts = [
   { slug: "second-post", title: "두 번째 글" },
 ];
 
-function App() {
-  const [currentSlug, setCurrentSlug] = useState(null);
-  const [content, setContent] = useState("");
+const App = () => {
+  const [ShadowAngle, setShadowAngle] = useState(0);
+
+  const handleWheel = (e) => {
+    setShadowAngle((prev) =>{
+      const next = Math.max(-45, Math.min(45, prev + e.deltaY * 0.1));
+      return next;
+    });
+  };
 
   useEffect(() => {
-    if (currentSlug) {
-      import(`./posts/${currentSlug}.md`)
-        .then((res) => fetch(res.default))
-        .then((res) => res.text())
-        .then((text) => setContent(text));
-    }
-  }, [currentSlug]);
+    window.addEventListener("wheel", handleWheel);
+    return () => window.removeEventListener("wheel", handleWheel);
+  }, []);
 
   return (
-    <div style={{ padding: 24 }}>
-      <h1>📝 내 블로그</h1>
-
-      {currentSlug === null ? (
-        <ul>
-          {posts.map((post) => (
-            <li key={post.slug}>
-              <button onClick={() => setCurrentSlug(post.slug)}>
-                {post.title}
-              </button>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <div>
-          <button onClick={() => setCurrentSlug(null)}>← 목록으로</button>
-          <ReactMarkdown>{content}</ReactMarkdown>
-        </div>
-      )}
+    <div className="container">
+      <h1 className="glow-text">{ShadowAngle}</h1>
     </div>
-  );
+  )
 }
 
 export default App;
