@@ -10,6 +10,38 @@
     justify-content: center;
 }
 
+.blog-home,
+.post,
+.canvas-page {
+  width: min(100% - 2rem, 68rem);
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+}
+
+.blog-home header,
+.blog-home nav {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.post-list li {
+  padding: 1.2rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.post-list p { margin: 0.4rem 0 0; }
+
+.canvas-wrapper canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  touch-action: none;
+}
+
 /* RESETS */
 *,
 *::before,
